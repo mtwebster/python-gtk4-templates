@@ -47,7 +47,6 @@ if __name__ == "__main__":
     setproctitle.setproctitle("foobar")
 
     app = MyApplication()
-    # app = Gtk.Application(application_id="org.foo.Bar", Gio.ApplicationFlags.DEFAULT_FLAGS)
 
     signal.signal(signal.SIGINT, app.quit)
     sys.exit(app.run(sys.argv))
