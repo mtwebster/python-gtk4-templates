@@ -7,7 +7,6 @@ import sys
 import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk, Gio
-
 class MyApplication(Gtk.Application):
     def __init__(self):
         Gtk.Application.__init__(self,
@@ -48,5 +47,5 @@ if __name__ == "__main__":
 
     app = MyApplication()
 
-    signal.signal(signal.SIGINT, app.quit)
+    signal.signal(signal.SIGINT, lambda a, b: app.quit())
     sys.exit(app.run(sys.argv))

@@ -13,7 +13,7 @@ def on_activate(app):
 
     window = Gtk.ApplicationWindow(application=app)
     window.set_title("Foo Bar")
-    window.connect("destroy", lambda w, app: app.quit, app)
+    window.connect("destroy", lambda w, app: app.quit(), app)
     # ...
     # ...
     # box = Gtk.Box() ...
@@ -28,5 +28,5 @@ if __name__ == "__main__":
     app = Gtk.Application(application_id="org.foo.Bar", flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
     app.connect("activate", on_activate)
 
-    signal.signal(signal.SIGINT, app.quit)
+    signal.signal(signal.SIGINT, lambda a, b: app.quit())
     sys.exit(app.run(sys.argv))
